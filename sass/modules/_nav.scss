@@ -1,0 +1,83 @@
+#masthead {
+	@include container;
+	//@include full;
+	padding-top: 20px 0;
+
+
+	#logo {
+		@include span(2);
+	} //logo
+	#accountMenu {
+		@include span(last 6);
+		padding-top: 20px;
+
+		ul {
+			@include span(4 of 6);
+			@include horizontal-list;
+			} //ul
+		form {
+			@include span(last 2 of 6);
+			} //topSearch
+
+		@include breakpoint(0 $small) { 
+			@include span(6 of 6);
+			} // 0 - small
+		} //accountMenu
+} //masthead
+
+#mainNav {
+	@include clearfix;
+	@include background-image(linear-gradient(top, lighten($brite-blue, 10), $brite-blue));
+
+	width: 100%;
+	padding: 5px 0;
+	z-index:100;
+
+	ul {
+		@include container;
+		li {
+			float:left;
+			padding-right: 10px;
+
+			.fa {
+				font-size: 20px;
+				} //fa
+			.redButton {
+				@extend button;
+				background: $orange;
+				color: $white;
+				margin:4px 10px auto;
+				} //redButton
+			a {
+				display: inline-block;
+				color: $white;
+				padding: 10px 10px 10px 25px;
+				background-size: 35px;
+				background-repeat: no-repeat;
+				background-position: 2px;
+
+				&:hover {
+					background: lighten($brite-blue, 20);
+				} //hover
+
+				//between 0 and 790px
+				@include breakpoint(0 $medium) {
+            		padding: 10px 18px;
+		            &::after {
+		              content: '\000a0';
+		              display: block;
+		            } //after
+		            span {
+		            	display: none;
+		            } //span
+		            .fa {
+						font-size: 28px;
+					} //fa
+		          } //breakpoint
+
+				
+			} //a
+		} //li
+	} //ul
+} //mainNav
+

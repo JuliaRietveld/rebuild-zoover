@@ -1,0 +1,337 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+ body {
+ 	font: $font-main;
+ 	color: $body-color;
+ 	line-height: 21px;
+ 	background: $body-bg;
+ }
+// Typography
+#{headings()} {
+	margin-bottom: 10px;
+}
+
+ h2 {
+ 	font-size: 18px;
+ }
+
+ @mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  } //before, after
+  &:after {
+    clear: both;
+  } //after
+} //clearfix
+
+img {
+	  width: 100%;
+	  height: auto;
+ }
+ ul, li {
+	  list-style: none;
+	  margin: 0;
+	  padding: 0;
+ }
+
+ button {
+ 	border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset, 0 -2px 0 1px rgba(0, 0, 0, 0.1) inset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s ease 0s;
+ }
+
+ .page {
+ 	section {
+ 		background: $white;
+ 		margin: 20px 0;
+ 		padding: 20px;
+ 		@include border-radius(3px);
+ 		@include box-shadow( $body-bg 1px);
+ 	} //section
+ } //page
+ a {
+ 	text-decoration: none;
+ 	color: $link-color;
+ } //a
+
+ .wrapper {
+ 	@include container;
+ 	//@include full;
+
+ 	.primary {		 
+	 @include breakpoint($medium) {
+      @include span(8);		
+		.hero {
+			@include clearfix;
+			#coundtryNav {
+				li {
+					float: left;
+					a {
+						display: inline-block;
+					} //a
+				} //li	
+			} //countryNav
+			img {
+				@include span(3 of 7);
+			}
+			.countries {
+				@include span(last 4 of 7);
+				.countriesList {
+					@include span(2 of 7) {
+					li {
+					display: block;
+					line-height: 16px;
+					font-size: 12px;
+					} //li
+				} //countriesList
+				} //span
+			} //countries
+		} //hero
+		#lastMinute {
+			table {
+				width: 100%;
+				@include table-scaffolding;
+				//@include inner-table-borders(1px, darken($body-bg, 40%));
+				//@include alternating-rows-and-columns($body-bg, adjust-hue($body-bg, -120deg), #222222);
+				tr {
+					&:nth-child(2n) {
+						background-color: $body-bg;
+					} //odd row
+					td {
+					padding: 5px 10px;
+					} //td
+					&:hover {
+						background-color: darken($body-bg, 10%);
+					} //hover
+				} // table row
+			} //table
+			a {
+				float: right;
+			}
+		} //lastMinute
+		#topperFlopper {
+			@include clearfix;
+
+			#topper {
+				@include span(6 of 12);
+				img {
+					@include span(2 of 6);
+				}
+			
+			}
+			#flopper {
+				@include span(last 6 of 12);
+				img {
+					@include span(2 of 6);
+				}
+		
+			}
+		}  //topperFlopper
+		#latestRewards {
+			table {
+
+				width: 100%;
+				@include table-scaffolding;
+				//@include inner-table-borders(1px, darken($body-bg, 40%));
+				//@include alternating-rows-and-columns($body-bg, adjust-hue($body-bg, -120deg), #222222);
+				tr {
+					&:nth-child(2n) {
+						background-color: $body-bg;
+					} //odd row
+					td {
+					padding: 5px 10px;
+					} //td
+					&:hover {
+						background-color: darken($body-bg, 10%);
+					} //hover
+				} // table row
+			} //table
+			a {
+				display: block;
+				float: right;
+				padding-bottom: 20px;
+			}
+		} //lastRewards
+		#photoGallery {
+			@include clearfix;
+			
+
+			.gallery-item {
+				@include gallery(1 of 4);
+				display: inline;
+
+				margin-bottom: gutter();
+				} //gallery-item
+			} //div
+			a {
+				display: block;
+				@include full;
+				text-align: right;
+			}
+		} //photoGallery
+
+		#videoGallery {
+			@include clearfix;
+
+			.gallery-item {
+				@include gallery(1 of 4);
+				display: inline;
+				} //gallery-item
+		} //videoGallery
+		#recommendedAccomodation {
+			@include clearfix;
+
+			.accomodationItem {
+				@include span(3 wide);
+				margin-right: 30px;
+				display: inline;
+				
+				} //accomodationItem
+			} //recommendedAccomodation
+	} //primary
+// Secondary ----------------------------------------------------------
+	.secondary {
+
+		@include breakpoint($medium) {
+			@include span(last 4);
+
+			#verticalMenu {
+				@include clearfix;
+				h2 {
+					@include span(2 of 3);
+				}
+				img {
+					@include span(last 1);
+					width: 74px;
+					height: 74px;
+					margin-right: -20px;
+					margin-top: -20px;
+					margin-bottom: 30px;
+
+					}
+				ul {
+					@include full;
+					@include span(4 of 4);
+
+					li {
+				
+						img {
+							margin-bottom: 25px;
+							width: 300px;
+							height: 140px;
+							@include full;
+						} //img
+						a {
+							background: rgba(255,255,255, .85);
+							padding: 10px 20px;
+							height: 20px;
+							position: absolute;
+							top: -20px;
+							z-index: 1000;
+							} //a
+					} //li
+				} //ul	
+				a {
+					display: block;
+					@include full;
+					float: right;
+				}
+			} //verticalMenu
+
+			#news {
+
+				@include span(4 of 4);
+				div {
+					@include clearfix;
+					img {
+						@include span(1 of 4);
+						@include clearfix;
+						} //img
+					h4 {
+						@include span(last 3 of 4);
+						background: rgba(255,255,255,.85);
+						height: 20px;
+						padding: 10px 20px;
+						color: $brite-blue;
+						float: left;
+						} //h4
+					p {
+						text-align: center;
+					}
+				} //div
+			} //news
+
+			#social {
+				@include span(4 of 4);
+				div {
+					@include clearfix;
+					.fa {
+						@include span(1 of 4);
+					} //socialIcon
+					span {
+						@include span(last 3 of 4);
+					} //span
+				}	
+			} //social
+		} //medium breakpoint
+	} //secondary
+ } // wrapper
+
+// Footer ---------------------------------------------------------------
+#siteFooter {
+	@include container;
+	background: $white !important;
+
+	p {
+		@include span(3);
+		text-align: right;
+		padding-top: 20px;
+	} //p
+	ul {
+		@include span(last 8 of 12);
+		@include horizontal-list;
+	
+	  	padding-top: 20px;
+	  	padding-bottom: 20px;
+	  	li {
+	  		padding-right: 10px;
+	  	} //li
+	} //ul falgs
+	#navFooter {
+		@include span(12 of 12);
+		li {
+			text-align: center;
+		}
+	}
+	
+} //siteFooter
+
+
+
+
+
+
+
+
+
+
+
+
+

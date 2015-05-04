@@ -1,0 +1,26 @@
+// Requirements
+// ============
+
+@import "susy";
+
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  column-width: false, // false | value
+  container: 940px, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to,
+  columns: 12,
+  gutters: 1/4,
+  gutter-position: after, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: border-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: show,
+    color: rgba(#66f, .25),
+    output: background, // background | overlay
+    toggle: top left,
+  ),
+);
+
+
